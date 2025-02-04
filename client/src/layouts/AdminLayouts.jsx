@@ -1,9 +1,7 @@
 import React from 'react'
 import {Outlet,NavLink,Navigate} from "react-router-dom";
-import { FaUsers } from "react-icons/fa";
-import { IoIosHome } from "react-icons/io";
-import { MdDesignServices } from "react-icons/md";
-import { MdConnectWithoutContact } from "react-icons/md";
+import { FaUser, FaHome, FaRegListAlt } from "react-icons/fa";
+import { FaMessage } from "react-icons/fa6";
 import { useAuth } from '../store/auth';
 
 const AdminLayouts = () => {
@@ -19,20 +17,36 @@ const AdminLayouts = () => {
 
   return (
     <>
-    <header>
-      <div className="container">
-          admin home page
-      </div>
-    <nav>
-      <ul>
-        <li><NavLink to = "/admin"><IoIosHome/>Home</NavLink></li>
-        <li><NavLink to = "/admin/users"><FaUsers/>Users</NavLink></li>
-        <li><NavLink to = "/admin/contacts"><MdConnectWithoutContact/>Contacts</NavLink></li>
-        <li><NavLink to = "/admin/services"><MdDesignServices/>Services</NavLink></li>
-      </ul>
-    </nav>
-    </header>
-    <Outlet/>
+  <header>
+        <div className="container">
+          <nav>
+            <ul>
+              <li>
+                <NavLink to="/admin/users">
+                  <FaUser /> users
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/admin/contacts">
+                  <FaMessage /> Contact
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/admin/services">
+                  <FaRegListAlt /> Services
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/">
+                  <FaHome /> Home
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <Outlet />
     </>
   )
 }

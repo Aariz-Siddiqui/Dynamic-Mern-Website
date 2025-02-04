@@ -49,20 +49,65 @@ const handleSubmit = async (e)=>{
 }
 
   return (
-    <div>
-      <h1>Login Page</h1>
-      <form onSubmit={handleSubmit}>
-      <label htmlFor='email'>email</label>
-      <input type='email' name='email' id='email' placeholder='enter your email' 
-      value={user.email} onChange={handleInput}/>
-      <br/>
-      <label htmlFor='password'>password</label>
-      <input type='password' name='password' id="password" placeholder='enter your password'
-      value={user.password} onChange={handleInput}/>
-      <br/>
-      <button type='submit'>Sign In</button>
-      </form>
-    </div>
+    <>
+      <section>
+        <main>
+          <div className="section-registration">
+            <div className="container grid grid-two-cols">
+              <div className="registration-image">
+                <img
+                  src="/images/login.png"
+                  alt=" let's fill the login form "
+                  width="500"
+                  height="500"
+                />
+              </div>
+
+              {/* let tackle registration form  */}
+              <div className="registration-form">
+                <h1 className="main-heading mb-3">login form</h1>
+                <br />
+
+                <form onSubmit={handleSubmit}>
+                  <div>
+                    <label htmlFor="email">email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="enter your email"
+                      id="email"
+                      required
+                      autoComplete="off"
+                      value={user.email}
+                      onChange={handleInput}
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="password">password</label>
+                    <input
+                      type="password"
+                      name="password"
+                      placeholder="password"
+                      id="password"
+                      required
+                      autoComplete="off"
+                      value={user.password}
+                      onChange={handleInput}
+                    />
+                  </div>
+
+                  <br />
+                  <button type="submit" className="btn btn-submit">
+                    Register Now
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </main>
+      </section>
+    </>
   )
 }
 

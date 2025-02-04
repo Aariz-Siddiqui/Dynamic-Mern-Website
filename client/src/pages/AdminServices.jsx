@@ -23,7 +23,12 @@ useEffect(()=>{getAllServices()}, []);
 
 const deleteService =async (_id)=>{
   try{
-    
+    const response = await fetch(`http://localhost:8000/api/admin/services/delete/${_id}`,{
+      method:"DELETE",
+    })
+    if(response.ok){
+      getAllServices();
+    }
   }catch(error){
     console.log(error);
   }

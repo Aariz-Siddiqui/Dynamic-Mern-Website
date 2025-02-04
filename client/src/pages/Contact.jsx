@@ -52,24 +52,67 @@ const handleSubmit =async (e)=>{
 
   return (
     <>
-    <form onSubmit={handleSubmit}>
-      <label htmlFor='username'>Name</label>
-      <input type='text' name='username' id='name' placeholder="Enter your name please"
-      autoComplete="off"
-      value={user.username} onChange={handleInput}/>
-      <br/>
-      <label htmlFor='email'>Email</label>
-      <input type="email" name='email' id='email' placeholder='enter your email please'
-      autoComplete="off"
-      value={user.email} onChange={handleInput}/>
-      <br/>
-      <label htmlFor='message'>Message</label>
-      <input type='text' name='message' id="message" placeholder='enter your message please'
-      autoComplete="off"
-      value={user.message} onChange={handleInput}/>
-      <button>Submit</button>
-    <br/>
-    </form>
+      <section className="section-contact">
+        <div className="contact-content container">
+          <h1 className="main-heading">contact us</h1>
+        </div>
+        {/* contact page main  */}
+        <div className="container grid grid-two-cols">
+          <div className="contact-img">
+            <img src="/images/support.png" alt="we are always ready to help" />
+          </div>
+
+          {/* contact form content actual  */}
+          <section className="section-form">
+            <form onSubmit={handleSubmit}>
+              <div>
+                <label htmlFor="username">username</label>
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  autoComplete="off"
+                  value={user.username}
+                  onChange={handleInput}
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email">email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  autoComplete="off"
+                  value={user.email}
+                  onChange={handleInput}
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message">message</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  autoComplete="off"
+                  value={user.message}
+                  onChange={handleInput}
+                  required
+                  cols="30"
+                  rows="6"
+                ></textarea>
+              </div>
+
+              <div>
+                <button type="submit">submit</button>
+              </div>
+            </form>
+          </section>
+        </div>
+
+      </section>
     </>
   )
 }
